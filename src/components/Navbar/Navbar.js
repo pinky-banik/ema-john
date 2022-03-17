@@ -16,11 +16,8 @@ const Navbar = () => {
             <form>
                 <input type="text" placeholder="type here to search" />
                 
-                <a href="/cart"><FontAwesomeIcon icon={faShoppingCart} /><span class="badge">{5}</span></a>
-                
+                <a href="/cart"><FontAwesomeIcon icon={faShoppingCart} /><span className="badge">{5}</span></a>  
             </form>
-            
-            
         </div>
     );
 };

@@ -3,13 +3,7 @@
     grid-template-columns: 3fr 1fr;
     padding: 2%;
 }
-button{
-    width: 50%;
-    background-color: goldenrod;
-    padding: 1%;
-    border-radius: 5px;
-    border: 2px solid rgba(128, 128, 128, 0.322);
-}
+
 .product-container{
     border-right: 1px solid lightgray;
     margin-right: 5px;

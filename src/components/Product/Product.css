@@ -2,4 +2,14 @@
     display: flex;
     border-bottom: 1px solid lightgray;
     padding: 2%;
+    width: 75%;
+    margin-left: 20%;
+    text-align: left;
+}
+.button{
+    width: 50%;
+    background-color: goldenrod;
+    padding: 1%;
+    border-radius: 5px;
+    border: 2px solid rgba(128, 128, 128, 0.322);
 }

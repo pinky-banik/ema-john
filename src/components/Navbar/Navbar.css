@@ -1,0 +1,33 @@
+.logo{
+    text-align: center;
+    width: 25%;
+}
+nav{
+    background-color: black;
+    padding: 1%;
+    text-align: left;
+}
+nav a{
+    text-decoration: none;
+    color : white;
+    padding-left: 3%;
+}
+form{
+    background-color: rgba(0, 0, 0, 0.836);
+    color: white;
+}
+form input{
+    width: 75%;
+    padding: 1%;
+    margin: 2%;
+}
+form a{
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+}
+.badge{
+    padding: 5px;
+    color: goldenrod;
+    font-weight: 700;
+}

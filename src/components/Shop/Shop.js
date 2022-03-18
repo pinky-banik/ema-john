@@ -61,8 +61,7 @@ const Shop = () => {
                 <input  type="text"
                 onChange={handleSearch}
                  placeholder="type here to search" />
-                
-                <a href="/cart"><FontAwesomeIcon icon={faShoppingCart} /><span className="badge">{cart.length}</span></a>  
+                              <a href="/cart"><FontAwesomeIcon icon={faShoppingCart} /><span className="badge">{cart.length}</span></a>  
             </form>
             </div>
             <div className='shop-container'>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, deleteFromDb } from '../../utilities/localStorage';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./Shop.css"
@@ -13,10 +14,14 @@ const Shop = () => {
        .then(data=> setProducts(data))
    },[]);
 
-    const handleAddToCart =() =>{
-       console.log("button is working");
+    const handleAddToCart =(product) =>{
+       const newcart = [...cart, product];
+       setCart(newcart);
+       addToDb(product.key);
     }
-
+    const handleRemove =id =>{
+        deleteFromDb(id);
+    }
     return (
         <div className='shop-container'>
             <div className='product-container'>
@@ -25,6 +30,7 @@ const Shop = () => {
                     key={product.key}
                     product={product}
                     handleAddToCart={handleAddToCart}
+                    handleRemove = {handleRemove}
                     >
                     </Product>)
                 }

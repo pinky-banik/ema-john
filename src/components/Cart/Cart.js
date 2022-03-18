@@ -22,7 +22,7 @@ const Cart = (props) => {
             <small>Shipping & Handling : {}</small><br/>
             <small>Total before tax : {}</small><br/>
             <small>Estimated tax : {}</small><br/>
-            <h3 style={{color:"red"}}>Order Total : ${total.toFixed(2)}</h3>
+            <h3 style={{color:"red"}}>Order Total : ${grandTotal.toFixed(2)}</h3>
             <button className='button' style={{width:"100%"}}>Review your order</button>
         </div>
     );

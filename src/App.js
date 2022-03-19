@@ -1,34 +1,59 @@
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Shop from './components/Shop/Shop';
 import NotFound from './NotFound/NotFound';
 import Friends from './components/Friends/Friends';
 import "./App.css";
+import Home from './components/Home/Home';
+import FriendDetail from './components/FriendDetail/FriendDetail';
+import About from './components/About/About';
+import Culture from './components/Culture/Culture';
+import OrderReview from './components/OrderReview/OrderReview';
+import ManageInventory from './components/ManageInventory/ManageInventory';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Friends>
-          </Friends>
-        </Route>
-        <Route path="/navbar">
+      <Router>
+      <Route path="/navbar">
           <Navbar>
           </Navbar>
+        </Route>
+      <Switch>
+        <Route exact path="/">
+          <Home>
+          </Home>
+        </Route>
+        <Route path="/friends">
+        <Friends>
+        </Friends>
         </Route>
         <Route path="/shop">
           <Shop>
           </Shop>
+        </Route>
+        <Route path="/friend/:friendId">
+          <FriendDetail></FriendDetail>
+        </Route>
+        <Route exact path ="/about">
+          <About></About>
+        </Route>
+        <Route exact path="/about/culture">
+          <Culture></Culture>   
+        </Route>
+        <Route path="/orderReview">
+          <OrderReview></OrderReview>
+        </Route>
+        <Route path="/manageInventory">
+          <ManageInventory></ManageInventory>
         </Route>
         <Route>
           <NotFound>
           </NotFound>
         </Route>
       </Switch>
-      </BrowserRouter>
+      </ Router>
     </div>
   );
 }

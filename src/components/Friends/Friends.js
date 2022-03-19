@@ -3,7 +3,7 @@ import Friend from './../Friend/Friend';
 import "./Friends.css";
 
 const Friends = () => {
-    const [friends,setFriends] =useState([])
+    const [friends,setFriends] = useState([])
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res=>res.json())

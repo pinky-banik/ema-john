@@ -7,7 +7,6 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./Shop.css"
 import { Link } from 'react-router-dom';
-import useCart from '../Hooks/useCart';
 const Shop = () => {
    const [products,setProducts]=useState([]);
    const [cart,setCart] = useState([]);
@@ -57,7 +56,6 @@ const Shop = () => {
             product.quantity=1;
             newCart=[...cart,product];
         }
-       console.log(newCart);
        setCart(newCart);
        addToDb(product.key);
     }
@@ -69,6 +67,13 @@ const Shop = () => {
         const matchedProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
         setDisplayProducts(matchedProducts);
     }
+    let totalQuantity = 0;
+    let total = 0;
+    for(const product of cart){
+        product.quantity = !product.quantity?1 : product.quantity;
+        total = total + product.price * product.quantity;
+        totalQuantity = totalQuantity+ product.quantity;
+    }
     return (
         <div>
             <div className='search_container'>
@@ -76,7 +81,7 @@ const Shop = () => {
                 <input  type="text"
                 onChange={handleSearch}
                  placeholder="type here to search" />
-                              <a href="/cart"><FontAwesomeIcon icon={faShoppingCart} /><span className="badge">{cart.length}</span></a>  
+                              <Link to="/orderReview"><FontAwesomeIcon icon={faShoppingCart} /><span className="badge">{totalQuantity}</span></Link>  
             </form>
             </div>
             <div className='shop-container'>
@@ -92,7 +97,9 @@ const Shop = () => {
                 }
             </div>
             <div>
-                <Cart cart={cart}>
+                <Cart cart={cart}
+                      totalQuantity={totalQuantity}
+                >
                     <Link to="/review">
                     <button className='button' style={{width:"100%"}}>Review your Order</button>
                     </Link>

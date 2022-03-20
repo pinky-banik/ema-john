@@ -11,9 +11,9 @@ import About from './components/About/About';
 import Culture from './components/Culture/Culture';
 import OrderReview from './components/OrderReview/OrderReview';
 import ManageInventory from './components/ManageInventory/ManageInventory';
-import ReviewItem from './components/ReviewItem/ReviewItem';
 import NotFound from './components/NotFound/NotFound';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import GrandFatherHouse from './components/GrandFather.js/GrandFatherHouse.js/GrandFatherHouse';
 function App() {
   return (
     <div className="App">
@@ -55,6 +55,9 @@ function App() {
         </Route>
         <Route path="/placeOrder">
           <PlaceOrder></PlaceOrder>
+        </Route>
+        <Route path="/grandFather">
+          <GrandFatherHouse></GrandFatherHouse>
         </Route>
         <Route>
           <NotFound>

@@ -19,6 +19,7 @@ const Navbar = () => {
                 <NavLink activeStyle={activeStyle} to="/friends">Friends</NavLink>
                 <NavLink activeStyle={activeStyle} to="/about">About</NavLink>
                 <NavLink activeStyle={activeStyle} to="/about/culture"> Culture</NavLink>
+                <NavLink activeStyle={activeStyle} to="/grandFather">GrandFather</NavLink>
             </nav>
             
         </div>

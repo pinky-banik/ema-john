@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Shop from './components/Shop/Shop';
-import NotFound from './NotFound/NotFound';
 import Friends from './components/Friends/Friends';
 import "./App.css";
 import Home from './components/Home/Home';
@@ -12,6 +11,9 @@ import About from './components/About/About';
 import Culture from './components/Culture/Culture';
 import OrderReview from './components/OrderReview/OrderReview';
 import ManageInventory from './components/ManageInventory/ManageInventory';
+import ReviewItem from './components/ReviewItem/ReviewItem';
+import NotFound from './components/NotFound/NotFound';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 function App() {
   return (
     <div className="App">
@@ -47,6 +49,12 @@ function App() {
         </Route>
         <Route path="/manageInventory">
           <ManageInventory></ManageInventory>
+        </Route>
+        <Route path="/review">
+          <OrderReview></OrderReview>
+        </Route>
+        <Route path="/placeOrder">
+          <PlaceOrder></PlaceOrder>
         </Route>
         <Route>
           <NotFound>

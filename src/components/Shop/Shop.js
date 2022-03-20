@@ -6,10 +6,13 @@ import { addToDb, deleteFromDb } from '../../utilities/localStorage';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./Shop.css"
+import { Link } from 'react-router-dom';
+import useCart from '../Hooks/useCart';
 const Shop = () => {
    const [products,setProducts]=useState([]);
    const [cart,setCart] = useState([]);
    const [displayProducts,setDisplayProducts]= useState([]);
+
 
     
    useEffect(()=>{
@@ -41,9 +44,21 @@ const Shop = () => {
        }
    },[products]);
 
+ 
     const handleAddToCart =(product) =>{
-       const newcart = [...cart, product];
-       setCart(newcart);
+        const exists= cart.find(cartProduct=>cartProduct.key===product.key);
+        let newCart =[];
+        if(exists){
+            const rest= cart.filter(cartProduct=>cartProduct.key!==product.key);
+            exists.quantity=(exists.quantity+1);
+            newCart=[...rest,product];
+        }
+        else{
+            product.quantity=1;
+            newCart=[...cart,product];
+        }
+       console.log(newCart);
+       setCart(newCart);
        addToDb(product.key);
     }
     const handleRemove =id =>{
@@ -77,7 +92,11 @@ const Shop = () => {
                 }
             </div>
             <div>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <Link to="/review">
+                    <button className='button' style={{width:"100%"}}>Review your Order</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
         </div>

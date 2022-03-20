@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { RingContext } from '../GrandFather.js/GrandFatherHouse.js/GrandFatherHouse';
+import { RingContext } from '../GrandFatherHouse.js/GrandFatherHouse';
 
 const Special = () => {
     const abc =useContext(RingContext);

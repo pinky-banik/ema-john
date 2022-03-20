@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Friend from './../Friend/Friend';
+import Friend from '../Friend/Friend';
 import "./Friends.css";
 
 const Friends = () => {

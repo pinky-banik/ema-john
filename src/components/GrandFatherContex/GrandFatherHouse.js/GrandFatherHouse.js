@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
-import GrandFather from '../GrandFather';
+import GrandFather from '../GrandFather.js/GrandFather';
+
 
 export const RingContext = createContext('ring');
 const GrandFatherHouse = () => {

@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Shop from './components/Shop/Shop';
-import Friends from './components/Friends/Friends';
 import "./App.css";
 import Home from './components/Home/Home';
 import FriendDetail from './components/FriendDetail/FriendDetail';
@@ -13,7 +12,8 @@ import OrderReview from './components/OrderReview/OrderReview';
 import ManageInventory from './components/ManageInventory/ManageInventory';
 import NotFound from './components/NotFound/NotFound';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
-import GrandFatherHouse from './components/GrandFather.js/GrandFatherHouse.js/GrandFatherHouse';
+import GrandFatherHouse from './components/GrandFatherContex/GrandFatherHouse.js/GrandFatherHouse';
+import Friends from './components/FriendsRoute/Friends/Friends';
 function App() {
   return (
     <div className="App">

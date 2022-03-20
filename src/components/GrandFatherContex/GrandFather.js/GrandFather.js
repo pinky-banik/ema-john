@@ -2,6 +2,7 @@ import React, { createContext } from 'react';
 import Aunty from '../Aunty/Aunty';
 import Father from '../Father/Father';
 import Uncle from '../Uncle/Uncle';
+
 import "./GrandFather.css";
 const GrandFather = (props) => {
     const {house,ornaments}=props;

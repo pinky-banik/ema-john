@@ -14,66 +14,20 @@ import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import GrandFatherHouse from './components/GrandFatherContex/GrandFatherHouse.js/GrandFatherHouse';
 import Friends from './components/FriendsRoute/Friends/Friends';
 import FriendDetail from './components/FriendsRoute/FriendDetail/FriendDetail';
-import InitilizeAuthentication from './components/Firebase/Config/FirebaseInit';
-import {getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+
 import { useState } from 'react';
+import AuthPractise from './components/AuthPractise/AuthPractise';
 
 
 
-InitilizeAuthentication();
-
-const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
-const auth = getAuth();
 
 
 function App() {
-  const [user,setUser] = useState({});
-  const handleGoogleSignIn=()=>{
-    signInWithPopup(auth,googleProvider)
-    .then(result=>{
-      const {displayName,email,photoURL} =result.user;
-      const loggedInUser ={
-        name: displayName,
-        email: email,
-        photo : photoURL
-      }
-      setUser(loggedInUser);
-    })
-    .catch((error)=>{
-      console.log(error.message);
-    })
-  }
-
-  const handleGithubSignIn=()=>{
-    signInWithPopup(auth, githubProvider)
-    .then(result=>{
-      const {displayName,email,photoURL} =result.user;
-      const loggedInUser ={
-        name: displayName,
-        email: email,
-        photo : photoURL
-      }
-      setUser(loggedInUser);
-    })
-    .catch((error)=>{
-      console.log(error.message);
-    })
-  };
-
+  
 
   return (
     <div className="App">
-      <button style={{width:"25%",margin:"5%"}} className='button' onClick={handleGoogleSignIn}>Google Sign In</button>
-      <button style={{width:"25%",margin:"5%"}} className='button' onClick={handleGithubSignIn}>Github Sign In</button>
-      <br />
-      {
-        user.name && <div>
-          <h1>{user.name}</h1>
-          <p>email {user.email}</p> <br />
-          <img src={user.photo} alt="userPhoto" />
-        </div>
-      }
+      
       <Router>
       <Route path="/navbar">
           <Navbar>
@@ -115,6 +69,9 @@ function App() {
         </Route>
         <Route path="/grandFather">
           <GrandFatherHouse></GrandFatherHouse>
+        </Route>
+        <Route path="/authPractise">
+          <AuthPractise></AuthPractise>
         </Route>
         <Route>
           <NotFound>

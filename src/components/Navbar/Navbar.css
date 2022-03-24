@@ -6,6 +6,7 @@ nav{
     background-color: black;
     padding: 1%;
     text-align: left;
+    width: 100%;
 }
 nav a{
     text-decoration: none;

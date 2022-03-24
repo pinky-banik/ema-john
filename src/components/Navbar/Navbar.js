@@ -10,8 +10,8 @@ const Navbar = () => {
         color:"red"
     }
     return (
-        <div className='nav'>
-            <img className='logo' src={logo} alt="abc" />
+        <div className='nav '>
+            <img className='logo mx-auto' src={logo} alt="abc" />
             <nav >
                 <NavLink activeStyle={activeStyle} to="/shop">Shop</NavLink>
                 <NavLink activeStyle={activeStyle} to="/orderReview">Order Review</NavLink>
@@ -20,6 +20,7 @@ const Navbar = () => {
                 <NavLink activeStyle={activeStyle} to="/about">About</NavLink>
                 <NavLink activeStyle={activeStyle} to="/about/culture"> Culture</NavLink>
                 <NavLink activeStyle={activeStyle} to="/grandFather">GrandFather</NavLink>
+                <NavLink activeStyle={activeStyle} to="/authPractise">AuthPractise</NavLink>
             </nav>
             
         </div>

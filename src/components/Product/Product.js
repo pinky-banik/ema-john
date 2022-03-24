@@ -12,8 +12,8 @@ const Product = (props) => {
                 <h4 style={{color:"blue", fontWeight:"600"}}>{name}</h4>
                 <p>by : {seller}</p>
                 <p>Price : {price}</p>
-                <button className='button' onClick={()=>props.handleAddToCart(props.product)}>Add to Cart</button>
-                <button onClick={() => props.handleRemove(key)}> Remove</button>
+                <button className='button mx-1' onClick={()=>props.handleAddToCart(props.product)}>Add to Cart</button>
+                <button className='button mx-1' onClick={() => props.handleRemove(key)}> Remove</button>
             </div>
         </div>
     );

@@ -14,9 +14,11 @@ import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import GrandFatherHouse from './components/GrandFatherContex/GrandFatherHouse.js/GrandFatherHouse';
 import Friends from './components/FriendsRoute/Friends/Friends';
 import FriendDetail from './components/FriendsRoute/FriendDetail/FriendDetail';
-
-import { useState } from 'react';
 import AuthPractise from './components/AuthPractise/AuthPractise';
+import Login from './components/Authentication/Login/Login';
+import Register from './components/Authentication/Register/Register';
+import Shipping from './components/Shipping/Shipping';
+import PrivateRoute from './components/Authentication/PrivatRoute/PrivateRoute';
 
 
 
@@ -27,7 +29,6 @@ function App() {
 
   return (
     <div className="App">
-      
       <Router>
       <Route path="/navbar">
           <Navbar>
@@ -73,6 +74,15 @@ function App() {
         <Route path="/authPractise">
           <AuthPractise></AuthPractise>
         </Route>
+        <Route path="/login">
+          <Login></Login>
+        </Route>
+        <Route path="/register">
+          <Register></Register>
+        </Route>
+        <PrivateRoute path="/shipping">
+          <Shipping></Shipping>
+        </PrivateRoute>
         <Route>
           <NotFound>
           </NotFound>

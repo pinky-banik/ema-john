@@ -8,7 +8,7 @@ const ReviewItem = (props) => {
                 <img src={img} alt="" />
             </div>
             <div>
-            <h3 >name: {name}</h3>
+            <h3 className='text-primary'>name: {name}</h3>
             <h2>price: {price}</h2>
             <h3>quantity: {quantity}</h3>
             <button onClick={()=>props.handleRemove(key)} className='button'>remove</button>

@@ -18,11 +18,7 @@ const Navbar = () => {
                 <NavLink activeStyle={activeStyle} to="/shop">Shop</NavLink>
                 <NavLink activeStyle={activeStyle} to="/orderReview">Order Review</NavLink>
                 <NavLink activeStyle={activeStyle} to="/manageInventory">Manage Inventory here</NavLink>
-                <NavLink to="/shipping">Shipping</NavLink>
-                {/* <NavLink activeStyle={activeStyle} to="/friends">Friends</NavLink>
-                <NavLink activeStyle={activeStyle} to="/about">About</NavLink>
-                <NavLink activeStyle={activeStyle} to="/grandFather">GrandFather</NavLink>
-                <NavLink activeStyle={activeStyle} to="/authPractise">AuthPractise</NavLink> */}
+                
                 <NavLink activeStyle={activeStyle} to="/login">Login</NavLink>
                 <NavLink activeStyle={activeStyle} to="/register">Register</NavLink>
                 <span className='text-warning mx-2 fw-bold'>{user.displayName}</span>

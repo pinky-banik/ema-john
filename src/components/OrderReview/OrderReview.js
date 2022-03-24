@@ -4,7 +4,6 @@ import useCart from '../../Hooks/useCart';
 import useProducts from '../../Hooks/useProducts';
 import { clearTheCart, deleteFromDb } from '../../utilities/localStorage';
 import Cart from '../Cart/Cart';
-import Navbar from '../Navbar/Navbar';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
 const OrderReview = () => {
@@ -24,7 +23,6 @@ const OrderReview = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
             <div className='shop-container'>
             <div className='product-container'>
                 {

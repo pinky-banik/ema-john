@@ -1,56 +1,48 @@
-import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import InitilizeAuthentication from "../components/Firebase/Config/FirebaseInit";
+import { useState, useEffect } from 'react';
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import InitilizeAuthentication from '../components/Firebase/Config/FirebaseInit';
 
 InitilizeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [error, setError] = useState('');
-
-    const auth = getAuth()
+    const [loading, setLoading] = useState(true)
+    const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
 
     const signInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                console.log(result.user);
-                setUser(result.user);
-            })
-            .catch(error => {
-                setError(error.message);
-            })
+        return signInWithPopup(auth, googleProvider)
+            .finally(() => { setLoading(false) });
     }
 
-    const signInUsingGithub = () => {
-        signInWithPopup(auth, githubProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-    }
-
-    const logout = () => {
+    const logOut = () => {
+        setLoading(true);
         signOut(auth)
             .then(() => {
-                setUser({});
+                setUser({})
             })
+            .finally(() => setLoading(false))
     }
 
+    // observe whether user auth state changed or not
     useEffect(() => {
-        onAuthStateChanged(auth, user => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
             }
-        })
-    }, [auth]);
+            else {
+                setUser({});
+            }
+            setLoading(false);
+        });
+        return () => unsubscribe;
+    }, [])
 
     return {
         user,
-        error,
+        loading,
         signInUsingGoogle,
-        signInUsingGithub,
-        logout
+        logOut
     }
 }
 

@@ -1,10 +1,14 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const { user, loading } = useAuth();
-    if (loading) return 'loading';
+    const { user,isLoading} = useAuth();
+    if(isLoading){
+       return  <div class="spinner-border" role="status">
+       <span class="sr-only">Loading...</span>
+     </div>
+    }
     return (
         <Route
             {...rest}
@@ -13,7 +17,9 @@ const PrivateRoute = ({ children, ...rest }) => {
                     pathname: "/login",
                     state: { from: location }
                 }}
-            ></Redirect>}
+            ></Redirect>
+
+            }
         >
 
         </Route>

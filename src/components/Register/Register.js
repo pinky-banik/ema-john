@@ -6,11 +6,16 @@ const Register = () => {
         <div>
             <h2>Please Register</h2>
             <form>
-                <input type="email" />
+                <input type="email" name="" id=""
+                placeholder='Email' />
                 <br />
-                <input type="password" />
+                <input type="password" 
+                placeholder='password' />
                 <br />
-                <input type="submit" value="Submit" />
+                <input type="password" 
+                placeholder='Re-Enter Password' />
+                <br />
+                <input className='bg-primary rounded' type="submit" value="submit" />
             </form>
             <Link to="/login">Already Registered?</Link>
         </div>

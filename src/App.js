@@ -11,9 +11,8 @@ import NotFound from './components/NotFound/NotFound';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-
-
-
+import AuthProvider from './Contexts/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <AuthProvider><Router>
       <Route>
           <Navbar>
           </Navbar>
@@ -44,9 +43,9 @@ function App() {
         <Route path="/review">
           <OrderReview></OrderReview>
         </Route>
-        <Route path="/placeOrder">
+        <PrivateRoute path="/placeOrder">
           <PlaceOrder></PlaceOrder>
-        </Route>
+        </PrivateRoute>
         <Route path="/login">
           <Login></Login>
         </Route>
@@ -59,6 +58,9 @@ function App() {
         </Route>
       </Switch>
       </ Router>
+      </AuthProvider>
+      
+      
     </div>
   );
 }

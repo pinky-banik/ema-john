@@ -1,41 +1,22 @@
 import React from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-import useFirebase from '../../Hooks/useFirebase';
-import './Login.css';
 
 const Login = () => {
-    const { signInUsingGoogle } = useFirebase();
-    const location = useLocation();
-    const history = useHistory();
-    const redirect_uri = location.state?.from || '/shop';
-
-
-    const handleGoogleLogin = () => {
-        signInUsingGoogle()
-            .then(result => {
-                history.push(redirect_uri);
-            })
-    }
-
+    const {signInUsingGoogle} = useAuth();
     return (
         <div>
-            <div>
-                <h2>Login</h2>
-                <form>
-                    <input type="email" name="" id="" placeholder="Your Email" />
-                    <br />
-                    <input type="password" name="" id="" />
-                    <br />
-                    <input type="submit" value="Submit" />
-                </form>
-                <p>new to ema-john website? <Link to="/register">Create Account</Link></p>
-                <div>-------or----------</div>
-                <button
-                    className="btn-regular"
-                    onClick={handleGoogleLogin}
-                >Google Sign In</button>
-            </div>
+            <h2>Please Login</h2>
+            <form action="">
+                <input type="email" name="" id="" placeholder='Email'/>
+                <br />
+                <input type="password" name="" id="" placeholder='Password'/>
+                <br />
+                <input  type="submit" value="submit" placeholder='Re-Enter Password'/>
+            </form>
+            <p>new to ema-john? <Link to="/register">Create Account</Link> </p>
+            <div>-------------------------------------------------</div>
+            <button onClick={signInUsingGoogle} className='btn btn-primary'>Google Sign In</button>
         </div>
     );
 };

@@ -12,7 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-button{
+.button{
   width: 40%;
   background-color: goldenrod;
   padding: 1%;

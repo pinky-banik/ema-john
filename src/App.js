@@ -14,6 +14,7 @@ import Register from './components/Register/Register';
 import AuthProvider from './Contexts/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Shipping from './components/Shipping/Shipping';
+import AddProduct from './components/AddProduct/AddProduct';
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route path="/review">
           <OrderReview></OrderReview>
+        </Route>
+        <Route path="/addProducts">
+          <AddProduct></AddProduct>
         </Route>
         <PrivateRoute path="/shipping">
           <Shipping></Shipping>

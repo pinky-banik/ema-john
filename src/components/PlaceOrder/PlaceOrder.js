@@ -1,6 +1,5 @@
 import React from 'react';
 import img from "../../images/giphy.gif"
-import Navbar from '../Navbar/Navbar';
 const PlaceOrder = () => {
     return (
         <div>

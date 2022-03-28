@@ -9,3 +9,13 @@
     margin-right: 5px;
     padding-right: 10px;
 }
+.pagination button{
+    padding-inline: 5%;
+    background-color: rgb(8, 121, 214);
+    border: 1px solid  lightgray;
+    margin: 1%;
+}
+.pagination .selected{
+    background: rgb(4, 4, 102);
+    color: white;
+}

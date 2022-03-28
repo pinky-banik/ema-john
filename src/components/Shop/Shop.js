@@ -7,21 +7,28 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./Shop.css"
 import { Link } from 'react-router-dom';
+import useCart from './../../Hooks/useCart';
 const Shop = () => {
    const [products,setProducts]=useState([]);
    const [cart,setCart] = useState([]);
    const [displayProducts,setDisplayProducts]= useState([]);
+   const[page,setPage] = useState(0);
+   const [pageCount,setPageCount] = useState(0);
+   const size =10;
 
 
     
    useEffect(()=>{
-       fetch('./products.JSON')
-       .then(res=> res.json())
-       .then(data=> {
-        setProducts(data)
-        setDisplayProducts(data);
-       });   
-   },[]);
+    fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+    .then(res => res.json())
+    .then(data => {
+        setProducts(data.products);
+        setDisplayProducts(data.products);
+        const count = data.count;
+        const pageNumber = Math.ceil(count / size);
+        setPageCount(pageNumber);
+    });
+   },[page]);
 
    useEffect(()=>{
        const savedCart = getStoredCart();
@@ -95,7 +102,22 @@ const Shop = () => {
                     >
                     </Product>)
                 }
+                <div className='pagination mx-auto my-2 w-50'>
+                    {
+                    [...Array(pageCount).keys()]
+                    .map(number => <button
+                    className ={page===number?'selected':''}
+                    key={number}
+                    onClick={()=>setPage(number)}
+                     
+                     >
+                        {number +1}
+                    </button>)
+
+                    }
+                </div>
             </div>
+            
             <div>
                 <Cart cart={cart}
                       totalQuantity={totalQuantity}

@@ -19,11 +19,13 @@ const Navbar = () => {
                 <NavLink activeStyle={activeStyle} to="/shop">Shop</NavLink>
                 <NavLink activeStyle={activeStyle} to="/orderReview">Order Review</NavLink>
                 <NavLink activeStyle={activeStyle} to="/manageInventory">Manage Inventory here</NavLink>
+                <NavLink activeStyle={activeStyle} to="/addProducts">AddProduct</NavLink>
                 {<span className='text-warning mx-3'>{user?.displayName}</span>}
                 {
                     user.email?<button onClick={logOut} className='btn-primary  rounded mx-2'>log out</button>:
                     <NavLink activeStyle={activeStyle} to="/login">Login</NavLink>
                 }
+                
             </nav>
             
         </div>

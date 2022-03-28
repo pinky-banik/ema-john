@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import useCart from './../../Hooks/useCart';
 const Shop = () => {
    const [products,setProducts]=useState([]);
-   const [cart,setCart] = useState([]);
+   const [cart,setCart] = useCart(products);
    const [displayProducts,setDisplayProducts]= useState([]);
    const[page,setPage] = useState(0);
    const [pageCount,setPageCount] = useState(0);

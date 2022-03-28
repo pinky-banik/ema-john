@@ -2,12 +2,31 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
+import { clearTheCart, getStoredCart } from '../../utilities/localStorage';
 
 const Shipping = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const {user} =useAuth();
   const onSubmit = data => {
+    const savedCart = getStoredCart();
+    data.order = savedCart;
+    console.log(data);
 
+    fetch('http://localhost:5000/orders',{
+      method :'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res=>res.json())
+    .then(result =>{
+      if(result.insertedId){
+        alert('order processed successfully');
+        clearTheCart();
+        reset();
+      }
+    })
   };
 
     return (

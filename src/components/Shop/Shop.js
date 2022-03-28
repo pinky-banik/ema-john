@@ -16,8 +16,7 @@ const Shop = () => {
    const [pageCount,setPageCount] = useState(0);
    const size =10;
 
-
-    
+  
    useEffect(()=>{
     fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
     .then(res => res.json())
@@ -29,26 +28,6 @@ const Shop = () => {
         setPageCount(pageNumber);
     });
    },[page]);
-
-   useEffect(()=>{
-       const savedCart = getStoredCart();
-       const storedCart =[];
-       if (products.length){
-           for (const key in savedCart){
-           const addedProduct = products.find(product=>product.key===key);
-           if(addedProduct){
-               const quantity = savedCart[key];
-               addedProduct.quantity = quantity;
-            storedCart.push(addedProduct);
-           }
-           
-           }
-           setCart(storedCart);
-       }
-       else{
-
-       }
-   },[products]);
 
  
     const handleAddToCart =(product) =>{

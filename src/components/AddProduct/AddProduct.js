@@ -10,7 +10,7 @@ const AddProduct = () => {
 
 
     // useEffect(()=>{
-    //     const url= "http://localhost:5000/products"
+    //     const url= "https://limitless-everglades-38697.herokuapp.com/products"
     //     fetch(url)
     //     .then(res=>res.json())
     //     .then(data=>{

@@ -9,7 +9,7 @@ const useCart = () => {
         const savedCart = getStoredCart();
         const keys = Object.keys(savedCart);
         console.log(keys);
-        fetch('http://localhost:5000/products/bykeys',{
+        fetch('https://limitless-everglades-38697.herokuapp.com/products/bykeys',{
             method: "POST",
             headers:{
                 'content-type' : 'application/json'

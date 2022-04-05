@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { getStoredCart } from '../../utilities/fakedb';
 import { addToDb, deleteFromDb } from '../../utilities/localStorage';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
